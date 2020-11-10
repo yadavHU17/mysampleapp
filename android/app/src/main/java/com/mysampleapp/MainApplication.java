@@ -1,5 +1,4 @@
 package com.mysampleapp;
-import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 
 import android.app.Application;
 import android.content.Context;
