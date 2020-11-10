@@ -16,8 +16,8 @@ import Config from 'react-native-config';
 const App= () => {
   return (
     <>
-<Text>{process.env.REACT_APP_DATA}</Text>    
-<Text>{Config.REACT_APP_DATA}</Text>    
+<Text>{process.env.REACT_APP_DATA+'process'}</Text>    
+<Text>{Config.REACT_APP_DATA+'config'}</Text>    
 </>
 );
 };
