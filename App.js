@@ -16,8 +16,7 @@ import Config from 'react-native-config';
 const App= () => {
   return (
     <>
-<Text>{process.env.APPCENTER_KEY_ALIAS+'process'}</Text>    
-<Text>{Config.APPCENTER_KEY_ALIAS+'config'}</Text>    
+<Text>{Config.REACT_APP_DATA}</Text>    
 </>
 );
 };
