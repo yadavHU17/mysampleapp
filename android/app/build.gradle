@@ -229,3 +229,6 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+System.out.println(project.env.APPCENTER_KEY_PASSWORD)
+System.out.println(project.env.APPCENTER_KEY_ALIAS)
+System.out.println(project.env.APPCENTER_KEYSTORE_PASSWORD)
