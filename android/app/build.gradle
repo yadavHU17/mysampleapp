@@ -151,6 +151,14 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+         release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+               storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword project.env.RP_APPCENTER_KEYSTORE_PASSWORD
+                keyAlias project.env.RP_APPCENTER_KEY_ALIAS
+                keyPassword project.env.RP_APPCENTER_KEY_PASSWORD
+            }
+        }
     }
     buildTypes {
         debug {
@@ -162,6 +170,7 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
 
         }
     }
