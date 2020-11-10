@@ -15,8 +15,7 @@ import Config from 'react-native-config';
 
 const App= () => {
   return (
-  <Text>{Config.APPCENTER_KEY_PASSWORD}</Text>
-    );
+<></>    );
 };
 
 
