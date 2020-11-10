@@ -1,5 +1,4 @@
 apply plugin: "com.android.application"
-apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
 
@@ -154,9 +153,12 @@ android {
          release {
             if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
                storeFile file(MYAPP_UPLOAD_STORE_FILE)
-                storePassword project.env.APPCENTER_KEYSTORE_PASSWORD
-                keyAlias project.env.APPCENTER_KEY_ALIAS
-                keyPassword project.env.APPCENTER_KEY_PASSWORD
+                storePassword System.getenv('APPCENTER_KEYSTORE_PASSWORD')
+                keyAlias System.getenv('APPCENTER_KEY_ALIAS')
+                keyPassword System.geten('APPCENTER_KEY_PASSWORD')
+                // storePassword '123456'
+                // keyAlias 'key'
+                // keyPassword '123456'
             }
         }
     }
@@ -195,8 +197,6 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
-    implementation project(':react-native-config')
-
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
@@ -229,3 +229,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+System.out.println(System.getenv('REACT_APP_DATA'))
